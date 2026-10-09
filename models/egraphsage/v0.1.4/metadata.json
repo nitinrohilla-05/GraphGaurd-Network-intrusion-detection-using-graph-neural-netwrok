@@ -1,0 +1,28 @@
+{
+  "model_name": "egraphsage",
+  "version": "v0.1.4",
+  "saved_at": "2026-10-09T09:35:55.612830+00:00",
+  "edge_dim": 48,
+  "num_classes": 10,
+  "classes": [
+    "Benign",
+    "Analysis",
+    "Backdoor",
+    "DoS",
+    "Exploits",
+    "Fuzzers",
+    "Generic",
+    "Reconnaissance",
+    "Shellcode",
+    "Worms"
+  ],
+  "calibrated_tau": 0.8045454545454546,
+  "energy_threshold": -2.4946274757385254,
+  "hyperparameters": {
+    "epochs": 8,
+    "hidden_dim": 64,
+    "dropout": 0.1,
+    "lr": 0.005,
+    "mc_dropout": false
+  }
+}

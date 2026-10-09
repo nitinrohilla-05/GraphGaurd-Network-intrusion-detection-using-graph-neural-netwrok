@@ -1,0 +1,55 @@
+{
+  "binary_gnn": {
+    "binary_precision": 0.36363636363636365,
+    "binary_recall": 0.4444444444444444,
+    "binary_f1": 0.4,
+    "tau": 0.7954545454545454
+  },
+  "multi_class_gnn": {
+    "per_class": {
+      "Benign": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "support": 36
+      },
+      "DoS": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Exploits": {
+        "precision": 0.2,
+        "recall": 0.5,
+        "f1": 0.2857142857142857,
+        "support": 4
+      },
+      "Reconnaissance": {
+        "precision": 0.2,
+        "recall": 0.25,
+        "f1": 0.2222222222222222,
+        "support": 4
+      }
+    },
+    "macro_f1": 0.32698412698412704,
+    "weighted_f1": 0.6851499118165785
+  },
+  "baseline_rf": {
+    "baseline_model": "RandomForest",
+    "trained_samples": 210,
+    "precision": 1.0,
+    "recall": 0.2222222222222222,
+    "f1": 0.36363636363636365
+  },
+  "hub_dependence": {
+    "original_f1": 0.4,
+    "randomized_f1": 0.5,
+    "f1_delta": 0.09999999999999998
+  },
+  "open_set": {
+    "open_set_auroc": 0.8109756097560976,
+    "mean_in_distribution_energy": -1.6867512464523315,
+    "mean_ood_energy": -1.523219347000122
+  }
+}

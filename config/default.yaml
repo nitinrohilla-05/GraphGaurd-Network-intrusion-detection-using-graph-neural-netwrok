@@ -1,0 +1,53 @@
+# GraphGuard Default System Configuration
+system:
+  env: development
+  log_level: INFO
+  seed: 42
+
+detection:
+  threshold_tau: 0.70
+  window_duration_seconds: 30
+  slide_interval_seconds: 10
+  feature_dim: 16
+  open_set_energy_threshold: -5.0
+
+containment:
+  k_hops: 2
+  adam_steps: 200
+  adam_lr: 0.05
+  lambda1: 1.0  # weight for cost(e) * (1 - M_e)
+  lambda2: 0.5  # weight for sparsity (1 - M_e)
+  mask_threshold: 0.50
+  max_escalation_rounds: 3
+  verification_windows: 2
+
+rollback:
+  interval_seconds: 30
+  consecutive_benign_windows: 3
+  benign_confidence_threshold: 0.85
+  max_evasion_score: 0.20
+  watchlist_duration_hours: 24
+
+bus:
+  bootstrap_servers: localhost:9092
+  internal_servers: redpanda:29092
+  topics:
+    flows_raw: "flows.raw"
+    graph_windows: "graph.windows"
+    detections: "detections"
+    actions_desired: "actions.desired"
+    actions_applied: "actions.applied"
+    verifications: "verifications"
+    reactions: "reactions"
+    dlq: "dlq"
+
+database:
+  host: localhost
+  port: 5432
+  name: graphguard
+  user: graphguard
+
+redis:
+  host: localhost
+  port: 6379
+  db: 0

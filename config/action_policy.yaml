@@ -1,0 +1,35 @@
+# GraphGuard Graded Action Policy Rules (N3)
+# Matches based on detector confidence, edge cost, and target criticality
+
+thresholds:
+  confidence_high: 0.85
+  confidence_uncertain: 0.50
+  cost_low: 0.40
+  target_criticality_high: 0.80
+
+rules:
+  # High criticality destination: divert traffic to decoy honeypot to inspect / delay
+  - condition:
+      target_criticality_gte: 0.80
+    action: REDIRECT_TO_DECOY
+    decoy_ip: "10.0.0.99"
+    description: "Redirect malicious flows headed towards high-criticality assets to decoy"
+
+  # High confidence and low collateral cost: hard drop
+  - condition:
+      confidence_gte: 0.85
+      cost_lte: 0.40
+    action: DROP
+    description: "Drop confirmed attacks on low collateral impact edges"
+
+  # Uncertain detection or moderate cost: throttle via rate limit
+  - condition:
+      confidence_gte: 0.50
+    action: RATE_LIMIT
+    rate_limit_kbps: 128
+    description: "Rate limit suspicious flows with uncertain classification"
+
+default_action:
+  action: RATE_LIMIT
+  rate_limit_kbps: 64
+  description: "Fallback safe action"

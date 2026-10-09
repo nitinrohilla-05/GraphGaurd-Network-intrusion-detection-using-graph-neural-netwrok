@@ -1,0 +1,43 @@
+# GraphGuard Detection Configuration (Phase P1)
+data:
+  raw_dir: "data/raw"
+  dataset_path: "data/raw/NF-UNSW-NB15-v3.csv"
+  sample_path: "data/sample_nf_v2.csv"
+  chunk_size: 50000
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  seed: 42
+
+features:
+  # Columns strictly excluded from edge feature matrix to prevent identity leakage
+  excluded_columns:
+    - "IPV4_SRC_ADDR"
+    - "IPV4_DST_ADDR"
+    - "L4_SRC_PORT"
+    - "Label"
+    - "Attack"
+    - "Flow ID"
+    - "Source IP"
+    - "Destination IP"
+    - "Source Port"
+
+model:
+  hidden_dim: 64
+  num_layers: 2
+  dropout: 0.1
+  mc_dropout: false
+  lr: 0.005
+  weight_decay: 0.0001
+  epochs: 8
+  patience: 3
+
+open_set:
+  temperature: 1.0
+  holdout_attack: "Reconnaissance"
+
+baseline:
+  subsample_train: true
+  max_train_samples: 50000
+  n_estimators: 100
+  random_state: 42

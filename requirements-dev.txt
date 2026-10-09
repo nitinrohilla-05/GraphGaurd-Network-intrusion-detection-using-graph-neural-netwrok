@@ -1,0 +1,7 @@
+# Development, Testing, and Linting Dependencies
+-r requirements.txt
+pytest>=7.4.0
+pytest-cov>=4.1.0
+ruff>=0.1.6
+mypy>=1.7.0
+types-PyYAML>=6.0.12.12

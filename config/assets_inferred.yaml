@@ -1,0 +1,41 @@
+cost_weights:
+  alpha: 0.7
+  beta: 0.3
+default_criticality: 0.2
+nodes:
+  149.171.126.3:
+    role: dns
+    criticality: 0.95
+    reason: Received 34852 DNS (port 53) flows
+  149.171.126.5:
+    role: dns
+    criticality: 0.95
+    reason: Received 34715 DNS (port 53) flows
+  149.171.126.4:
+    role: dns
+    criticality: 0.95
+    reason: Received 34663 DNS (port 53) flows
+  149.171.126.12:
+    role: database
+    criticality: 0.85
+    reason: Received 257 DB connection flows
+  149.171.126.14:
+    role: database
+    criticality: 0.85
+    reason: Received 138 DB connection flows
+  149.171.126.17:
+    role: database
+    criticality: 0.85
+    reason: Received 135 DB connection flows
+  149.171.126.11:
+    role: database
+    criticality: 0.85
+    reason: Received 135 DB connection flows
+  149.171.126.18:
+    role: database
+    criticality: 0.85
+    reason: Received 133 DB connection flows
+  59.166.0.2:
+    role: gateway
+    criticality: 1.0
+    reason: Top communicating network host with 225719 flows

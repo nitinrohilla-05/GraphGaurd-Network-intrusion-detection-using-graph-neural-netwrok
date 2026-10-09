@@ -1,0 +1,49 @@
+# GraphGuard Asset Criticality Configuration
+cost_weights:
+  alpha: 0.7  # Weight for criticality(src, dst)
+  beta: 0.3   # Weight for normalised_benign_volume(e)
+
+roles:
+  gateway:
+    criticality: 1.0
+    description: "Default network gateway / egress router"
+  dns:
+    criticality: 0.95
+    description: "DNS resolution server"
+  domain_controller:
+    criticality: 0.95
+    description: "Active Directory / Identity provider"
+  database:
+    criticality: 0.85
+    description: "Core database backend"
+  dhcp:
+    criticality: 0.80
+    description: "DHCP address allocation server"
+  internal_server:
+    criticality: 0.60
+    description: "Internal business application server"
+  workstation:
+    criticality: 0.30
+    description: "Standard end-user workstation"
+  decoy:
+    criticality: 0.05
+    description: "Honeypot / decoy node for diversion"
+
+nodes:
+  "10.0.0.1":
+    role: gateway
+    criticality: 1.0
+  "10.0.0.2":
+    role: dns
+    criticality: 0.95
+  "10.0.0.3":
+    role: dhcp
+    criticality: 0.80
+  "10.0.0.10":
+    role: database
+    criticality: 0.85
+  "10.0.0.99":
+    role: decoy
+    criticality: 0.05
+
+default_criticality: 0.20

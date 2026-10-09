@@ -1,0 +1,22 @@
+{
+  "model_name": "egraphsage",
+  "version": "v0.1.0",
+  "saved_at": "2026-10-08T19:21:21.319717+00:00",
+  "edge_dim": 9,
+  "num_classes": 4,
+  "classes": [
+    "Benign",
+    "DoS",
+    "Exploits",
+    "Reconnaissance"
+  ],
+  "calibrated_tau": 0.6681818181818182,
+  "energy_threshold": -4.634609699249268,
+  "hyperparameters": {
+    "epochs": 8,
+    "hidden_dim": 64,
+    "dropout": 0.1,
+    "lr": 0.005,
+    "mc_dropout": false
+  }
+}
